@@ -73,7 +73,11 @@ export default {
             return beforeLength;
         },
         nextStep() {
-            this.step += 1
+            if(this.step==1){
+                this.step += 2
+            }else{
+                this.step += 1
+            }
         },
         random() {
             this.stopSeed = true
@@ -107,7 +111,6 @@ export default {
                 this.replies[randomNumbers[i]].index = randomNumbers[i]
                 res.push(this.replies[randomNumbers[i]]);
             }
-            this.step += 1
             return res
         },
         seedFocus(){
@@ -187,7 +190,7 @@ export default {
                                 <el-button type="success" @click="nextStep" style="margin-top: 10px;"
                                     :disabled="randomNumbers.length == 0">下一步</el-button>
                             </div>
-                            <div v-if="step >= 2">
+                            <div v-if="step==3">
                                 <el-table :data="getRes()" border
                                     style="width: 100%;height: 655px">
                                     <el-table-column prop="index" label="索引" width="53" />
