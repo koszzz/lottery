@@ -45,8 +45,6 @@ export default {
                     unique[item.user.id] = item;
                 } else {
                     duplicates.push(item);
-                    duplicates.push(unique[item.user.id]);
-                    delete unique[item.user.id];
                 }
             });
             duplicates.reverse()
